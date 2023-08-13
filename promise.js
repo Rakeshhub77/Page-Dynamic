@@ -40,5 +40,23 @@ function updateTime(){
     })
 }
 
+
+function  deletePost(){
+    return new Promise((resolve,reject) =>{
+         setTimeout(()  =>  {
+            if(posts.value);
+            {
+                resolve(posts.pop());
+            }
+            
+        }, 3000);
+    })
+}
+
 Promise.all([createPost({title:"post3",body:"this is post3"}),updateTime()])
-.then(getPost)
+.then(() => {
+    //getPost()
+    deletePost().then(getPost)
+    
+})
+    
